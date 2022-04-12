@@ -1,24 +1,55 @@
 # awesome-bug-detection-papers
+
+- [awesome-bug-detection-papers](#awesome-bug-detection-papers)
+	- [2016](#2016)
+		- [[USENIX Security '16] APISan: Sanitizing API Usages through Semantic Cross-Checking](#usenix-security-16-apisan-sanitizing-api-usages-through-semantic-cross-checking)
+	- [2017](#2017)
+		- [[USENIX Security '17] DR. CHECKER: A Soundy Analysis for Linux Kernel Drivers](#usenix-security-17-dr-checker-a-soundy-analysis-for-linux-kernel-drivers)
+	- [2018](#2018)
+		- [[NDSS '18] K-Miner: Uncovering Memory Corruption in Linux](#ndss-18-k-miner-uncovering-memory-corruption-in-linux)
+		- [[USENIX ATC '18] DSAC: Effective Static Analysis of Sleep-in-Atomic-Context Bugs in Kernel Modules](#usenix-atc-18-dsac-effective-static-analysis-of-sleep-in-atomic-context-bugs-in-kernel-modules)
+	- [2019](#2019)
+		- [[USENIX ATC '19] Effective Static Analysis of Concurrency Use-After-Free Bugs in Linux Device Drivers](#usenix-atc-19-effective-static-analysis-of-concurrency-use-after-free-bugs-in-linux-device-drivers)
+		- [[USENIX Security '19] PeX: A Permission Check Analysis Framework for Linux Kernel](#usenix-security-19-pex-a-permission-check-analysis-framework-for-linux-kernel)
+		- [[USENIX Security '19] Detecting missing-check bugs via semantic- and context-aware criticalness and constraints inferences](#usenix-security-19-detecting-missing-check-bugs-via-semantic--and-context-aware-criticalness-and-constraints-inferences)
+	- [2020](#2020)
+		- [[CCS '20] RTFM! Automatic Assumption Discovery and Verification Derivation from Library Document for API Misuse Detection](#ccs-20-rtfm-automatic-assumption-discovery-and-verification-derivation-from-library-document-for-api-misuse-detection)
+	- [2021](#2021)
+		- [[CCS '21] Detecting Missed Security Operations through Differential Checking of Object-based Similar Paths](#ccs-21-detecting-missed-security-operations-through-differential-checking-of-object-based-similar-paths)
+		- [[CCS '21] CPscan: Detecting Bugs Caused by Code Pruning in IoT Kernels](#ccs-21-cpscan-detecting-bugs-caused-by-code-pruning-in-iot-kernels)
+		- [[NDSS '21] KUBO: Precise and Scalable Detection of User-triggerable Undefined Behavior Bugs in OS Kernel](#ndss-21-kubo-precise-and-scalable-detection-of-user-triggerable-undefined-behavior-bugs-in-os-kernel)
+		- [[NDSS '21] Detecting Kernel Memory Leaks in Specialized Modules with Ownership Reasoning](#ndss-21-detecting-kernel-memory-leaks-in-specialized-modules-with-ownership-reasoning)
+	- [2022](#2022)
+		- [[NDSS '22] Testability Tarpits: the Impact of Code Patterns on the Security Testing of Web Applications](#ndss-22-testability-tarpits-the-impact-of-code-patterns-on-the-security-testing-of-web-applications)
+		- [[NDSS '22] An In-depth Analysis of Duplicated Linux Kernel Bug Reports](#ndss-22-an-in-depth-analysis-of-duplicated-linux-kernel-bug-reports)
+		- [[NDSS '22] Progressive Scrutiny: Incremental Detection of UBI bugs in the Linux Kernel](#ndss-22-progressive-scrutiny-incremental-detection-of-ubi-bugs-in-the-linux-kernel)
+
+## 2016
+
 ### [USENIX Security '16] APISan: Sanitizing API Usages through Semantic Cross-Checking
 
-[paper](https://www.usenix.org/system/files/conference/usenixsecurity16/sec16_paper_yun.pdf) [tool: APISan](https://github.com/sslab-gatech/apisan)
+[paper](https://www.usenix.org/system/files/conference/usenixsecurity16/sec16_paper_yun.pdf) [project: APISan](https://github.com/sslab-gatech/apisan)
 
 <details>
 	<summary>Abstract</summary>
 API misuse is a well-known source of bugs. Some of them (e.g., incorrect use of SSL API, and integer overflow of memory allocation size) can cause serious security vulnerabilities (e.g., man-in-the-middle (MITM) attack, and privilege escalation). Moreover, modern APIs, which are large, complex, and fast evolving, are error-prone. However, existing techniques to help finding bugs require manual effort by developers (e.g., providing specification or model) or are not scalable to large real-world software comprising millions of lines of code.<br/><br/>In this paper, we present APISAN, a tool that automatically infers correct API usages from source code without manual effort. The key idea in APISAN is to extract likely correct usage patterns in four different aspects (e.g., causal relation, and semantic relation on arguments) by considering semantic constraints. APISAN is tailored to check various properties with security implications. We applied APISAN to 92 million lines of code, including Linux Kernel, and OpenSSL, found 76 previously unknown bugs, and provided patches for all the bugs.
 </details>
 
+## 2017
+
 ### [USENIX Security '17] DR. CHECKER: A Soundy Analysis for Linux Kernel Drivers
 
-[paper](https://www.usenix.org/system/files/conference/usenixsecurity17/sec17-machiry.pdf) [tool: DR. CHECKER](https://github.com/ucsb-seclab/dr_checker)
+[paper](https://www.usenix.org/system/files/conference/usenixsecurity17/sec17-machiry.pdf) [project: DR. CHECKER](https://github.com/ucsb-seclab/dr_checker)
 
 <details>
 	<summary>Abstract</summary>
 While kernel drivers have long been know to poses huge security risks, due to their privileged access and lower code quality, bug-finding tools for drivers are still greatly lacking both in quantity and effectiveness. This is because the pointer-heavy code in these drivers present some of the hardest challenges to static analysis, and their tight coupling with the hardware make dynamic analysis infeasible in most cases. In this work, we present DR. CHECKER, a soundy (i.e., mostly sound) bug-finding tool for Linux kernel drivers that is based on well-known program analysis techniques. We are able to overcome many of the inherent limitations of static analysis by scoping our analysis to only the most bug-prone parts of the kernel (i.e., the drivers), and by only sacrificing soundness in very few cases to ensure that our technique is both scalable and precise. DR. CHECKER is a fully-automated static analysis tool capable of performing general bug finding using both pointer and taint analyses that are flow-sensitive, context-sensitive, and field-sensitive on kernel drivers. To demonstrate the scalability and efficacy of DR. CHECKER, we analyzed the drivers of nine production Linux kernels (3.1 million LOC), where it correctly identified 158 critical zero-day bugs with an overall precision of 78%.
 </details>
 
+## 2018
+
 ### [NDSS '18] K-Miner: Uncovering Memory Corruption in Linux
-[paper](https://www.ndss-symposium.org/wp-content/uploads/2018/02/ndss2018_05A-1_Gens_paper.pdf) [tool: K-Miner](https://github.com/ssl-tud/k-miner)
+[paper](https://www.ndss-symposium.org/wp-content/uploads/2018/02/ndss2018_05A-1_Gens_paper.pdf) [project: K-Miner](https://github.com/ssl-tud/k-miner)
 
 <details>
 	<summary>Abstract</summary>
@@ -27,16 +58,18 @@ Operating system kernels are appealing attack targets: compromising the kernel u
 
 ### [USENIX ATC '18] DSAC: Effective Static Analysis of Sleep-in-Atomic-Context Bugs in Kernel Modules
 
-[paper](https://www.usenix.org/system/files/conference/atc18/atc18-bai.pdf) <u>tool: DSAC</u>
+[paper](https://www.usenix.org/system/files/conference/atc18/atc18-bai.pdf) <u>project: DSAC</u>
 
 <details>
 	<summary>Abstract</summary>
 In a modern OS, kernel modules often use spinlocks and interrupt handlers to monopolize a CPU core for executing concurrent code in atomic context. In this situation, if the kernel module performs an operation that can sleep at runtime, a system hang may occur in execution. We refer to this kind of concurrency bug as a sleep-in-atomic-context (SAC) bug. In practice, SAC bugs have received insufficient attention and are hard to find, as they do not always cause problems in real executions.<br/><br/>In this paper, we propose a practical static approach named DSAC, to effectively detect SAC bugs and automatically recommend patches to help fix them. DSAC uses four key techniques: (1) a hybrid of flow-sensitive and -insensitive analysis to perform accurate and efficient code analysis; (2) a heuristics-based method to accurately extract sleep-able kernel interfaces that can sleep at runtime; (3) a path-check method to effectively filter out repeated reports and false bugs; (4) a pattern-based method to automatically generate recommended patches to help fix the bugs.<br/><br/>We evaluate DSAC on kernel modules (drivers, file systems, and network modules) of the Linux kernel, and on the FreeBSD and NetBSD kernels, and in total find 401 new real bugs. 272 of these bugs have been confirmed by the relevant kernel maintainers, and 43 patches generated by DSAC have been applied by kernel maintainers.
 </details>
 
+## 2019
+
 ### [USENIX ATC '19] Effective Static Analysis of Concurrency Use-After-Free Bugs in Linux Device Drivers
 
-[paper](https://www.usenix.org/system/files/atc19-bai.pdf) <u>tool: DCUAF</u>
+[paper](https://www.usenix.org/system/files/atc19-bai.pdf) <u>project: DCUAF</u>
 
 <details>
 	<summary>Abstract</summary>
@@ -45,7 +78,7 @@ In Linux device drivers, use-after-free (UAF) bugs can cause system crashes and 
 
 ### [USENIX Security '19] PeX: A Permission Check Analysis Framework for Linux Kernel
 
-[paper](https://www.usenix.org/system/files/sec19-zhang-tong.pdf) [tool: PeX](https://github.com/lzto/pex)
+[paper](https://www.usenix.org/system/files/sec19-zhang-tong.pdf) [project: PeX](https://github.com/lzto/pex)
 
 <details>
 	<summary>Abstract</summary>
@@ -54,25 +87,29 @@ Permission checks play an essential role in operating system security by providi
 
 ### [USENIX Security '19] Detecting missing-check bugs via semantic- and context-aware criticalness and constraints inferences
 
-[paper](https://www.usenix.org/system/files/sec19-lu.pdf) [tool: CRIX](https://github.com/umnsec/crix/)
+[paper](https://www.usenix.org/system/files/sec19-lu.pdf) [project: CRIX](https://github.com/umnsec/crix/)
 
 <details>
 	<summary>Abstract</summary>
 Missing a security check is a class of semantic bugs in software programs where erroneous execution states are not validated. Missing-check bugs are particularly common in OS kernels because they frequently interact with external untrusted user space and hardware, and carry out error-prone computation. Missing-check bugs may cause a variety of critical security consequences, including permission bypasses, out-of-bound accesses, and system crashes. While missingcheck bugs are common and critical, only a few research works have attempted to detect them, which is arguably because of the inherent challenges in the detection--whether a variable requires a security check depends on its semantics, contexts and developer logic, and understanding them is a hard problem.<br/><br/>In this paper, we present CRIX, a system for detecting missing-check bugs in OS kernels. CRIX can scalably and precisely evaluate whether any security checks are missing for critical variables, using an inter-procedural, semantic- and context-aware analysis. In particular, CRIX's modeling and cross-checking of the semantics of conditional statements in the peer slices of critical variables infer their criticalness, which allows CRIX to effectively detect missing-check bugs. Evaluation results show that CRIX finds missing-check bugs with reasonably low false-report rates. Using CRIX, we have found 278 new missing-check bugs in the Linux kernel that can cause security issues. We submitted patches for all these bugs; Linux maintainers have accepted 151 of them. The promising results show that missing-check bugs are a common occurrence, and CRIX is effective and scalable in detecting missing-check bugs in OS kernels.
 </details>
 
+## 2020
+
 ### [CCS '20] RTFM! Automatic Assumption Discovery and Verification Derivation from Library Document for API Misuse Detection
 
-[paper](https://homes.luddy.indiana.edu/luyixing/bib/CCS20-rtmf.pdf) [tool: Advance](https://kaichen.org/tools/Advance.html) 
+[paper](https://homes.luddy.indiana.edu/luyixing/bib/CCS20-rtmf.pdf) [project: Advance](https://kaichen.org/tools/Advance.html)
 
 <details>
   <summary>Abstract</summary>
 To use library APIs, a developer is supposed to follow guidance and respect some constraints, which we call integration assumptions (IAs). Violations of these assumptions can have serious consequences, introducing security-critical flaws such as use-after-free, NULL-dereference, and authentication errors. Analyzing a program for compliance with IAs involves significant effort and needs to be automated. A promising direction is to automatically recover IAs from a library document using Natural Language Processing (NLP) and then verify their consistency with the ways APIs are used in a program through code analysis. However, a practical solution along this line needs to overcome several key challenges, particularly the discovery of IAs from loosely formatted documents and interpretation of their informal descriptions to identify complicated constraints (e.g., data-/control-flow relations between different APIs). <br/><br/>In this paper, we present a new technique for automated assumption discovery and verification derivation from library documents. Our approach, called Advance, utilizes a suite of innovations to address those challenges. More specifically, we leverage the observation that IAs tend to express a strong sentiment in emphasizing the importance of a constraint, particularly those security-critical, and utilize a new sentiment analysis model to accurately recover them from loosely formatted documents. These IAs are further processed to identify hidden references to APIs and parameters, through an embedding model, to identify the information-flow relations expected to be followed. Then our approach runs frequent subtree mining to discover the grammatical units in IA sentences that tend to indicate some categories of constraints that could have security implications. These components are mapped to verification code snippets organized in line with the IA sentence's grammatical structure, and can be assembled into verification code executed through CodeQL to discover misuses inside a program. We implemented this design and evaluated it on 5 popular libraries (OpenSSL, SQLite, libpcap, libdbus and libxml2) and 39 real-world applications. Our analysis discovered 193 API misuses, including 139 flaws never reported before.
 </details>
 
+## 2021
+
 ### [CCS '21] Detecting Missed Security Operations through Differential Checking of Object-based Similar Paths
 
-[paper](https://nesa.zju.edu.cn/download/ldh_pdf_IPPO.pdf) <u>tool: IPPO</u>
+[paper](https://nesa.zju.edu.cn/download/ldh_pdf_IPPO.pdf) <u>project: IPPO</u>
 
 <details>
   <summary>Abstract</summary>
@@ -81,16 +118,36 @@ Missing a security operation such as a bound check has been a major cause of sec
 
 ### [CCS '21] CPscan: Detecting Bugs Caused by Code Pruning in IoT Kernels
 
-[paper](https://www-users.cse.umn.edu/~kjlu/papers/cpscan.pdf) [tool: CPscan](https://github.com/zjuArclab/CPscan)
+[paper](https://www-users.cse.umn.edu/~kjlu/papers/cpscan.pdf) [project: CPscan](https://github.com/zjuArclab/CPscan)
 
 <details>
 	<summary>Abstract</summary>
 To reduce the development costs, IoT vendors tend to construct IoT kernels by customizing the Linux kernel. Code pruning is common in this customization process. However, due to the intrinsic complexity of the Linux kernel and the lack of long-term effective maintenance, IoT vendors may mistakenly delete necessary security operations in the pruning process, which leads to various bugs such as memory leakage and NULL pointer dereference. Yet detecting bugs caused by code pruning in IoT kernels is difficult. Specifically, (1) a significant structural change makes precisely locating the deleted security operations (DSO ) difficult, and (2) inferring the security impact of a DSO is not trivial since it requires complex semantic understanding, including the developing logic and the context of the corresponding IoT kernel.<br/><br/>In this paper, we present CPscan, a system for automatically detecting bugs caused by code pruning in IoT kernels. First, using a new graph-based approach that iteratively conducts a structure-aware basic block matching, CPscan can precisely and efficiently identify theDSOs in IoT kernels. Then, CPscan infers the security impact of a DSO by comparing the bounded use chains (where and how a variable is used within potentially influenced code segments) of the security-critical variable associated with it. Specifically, CPscan reports the deletion of a security operation as vulnerable if the bounded use chain of the associated security-critical variable remains the same before and after the deletion. This is because the unchanged uses of a security-critical variable likely need the security operation, and removing it may have security impacts. The experimental results on 28 IoT kernels from 10 popular IoT vendors show that CPscan is able to identify 3,193DSO s and detect 114 new bugs with a reasonably low false-positive rate. Many such bugs tend to have a long latent period (up to 9 years and 5 months). We believe CPscan paves a way for eliminating the bugs introduced by code pruning in IoT kernels. We will open-source CPscan to facilitate further research.
 </details>
 
+### [NDSS '21] KUBO: Precise and Scalable Detection of User-triggerable Undefined Behavior Bugs in OS Kernel
+
+[paper](https://www.ndss-symposium.org/wp-content/uploads/ndss2021_1B-5_24461_paper.pdf) [project: KUBO](https://github.com/RiS3-Lab/kubo)
+
+<details>
+	<summary>Abstract</summary>
+Undefined Behavior bugs (UB) often refer to a wide range of programming errors that mainly reside in software implemented in relatively low-level programming languages e.g., C/C++. OS kernels are particularly plagued by UB due to their close interactions with the hardware. A triggered UB can often lead to exploitation from unprivileged userspace programs and cause critical security and reliability issues inside the OS. The previous works on detecting UB in kernels had to sacrifice precision for scalability, and in turn, suffered from extremely high false positives which severely impaired their usability.<br/><br/>We propose a novel static UB detector for Linux kernel, called KUBO which simultaneously achieves high precision and whole-kernel scalability. KUBO is focused on detecting critical UB that can be triggered by userspace input. The high precision comes from KUBO’s verification of the satisfiability of the UB-triggering paths and conditions. The whole-kernel scalability is enabled by an efficient inter-procedural analysis, which incrementally walks backward along callchains in an on-demand manner. We evaluate KUBO on several versions of whole Linux kernels (including drivers). KUBO found 23 critical UBs that were previously unknown in the latest Linux kernel. KUBO’s false detection rate is merely 27.5%, which is significantly lower than that of the state-of-the-art kernel UB detectors (91%). Our evaluation also shows the bug reports generated by KUBO are easy to triage.
+</details>
+
+### [NDSS '21] Detecting Kernel Memory Leaks in Specialized Modules with Ownership Reasoning
+
+[paper](https://www.ndss-symposium.org/wp-content/uploads/ndss2021_5B-4_24416_paper.pdf) [project: k-meld](https://github.com/Navidem/k-meld/blob/main/results/FOIs.txt)
+
+<details>
+	<summary>Abstract</summary>
+The kernel space is shared by hardware and all processes, so its memory usage is more limited, and memory is harder to reclaim, compared to user-space memory; as a result, memory leaks in the kernel can easily lead to high-impact denial of service. The problem is particularly critical in long-running servers. Kernel code makes heavy use of dynamic (heap) allocation, and many code modules within the kernel provide their own abstractions for customized memory management. On the other hand, the kernel code involves highly complicated data flow, so it is hard to determine where an object is supposed to be released. Given the complex and critical nature of OS kernels, as well as the heavy specialization, existing methods largely fail at effectively and thoroughly detecting kernel memory leaks.<br/><br/>In this paper, we present K-MELD, a static detection system for kernel memory leaks. K-MELD features multiple new techniques that can automatically identify specialized allocation/deallocation functions and determine the expected memory-release locations. Specifically, we first develop a usage- and structure-aware approach to effectively identify specialized allocation functions, and employ a new rule-mining approach to identify the corresponding deallocation functions. We then develop a new ownership reasoning mechanism that employs enhanced escape analysis and consumer-function analysis to infer expected release locations. By applying K-MELD to the Linux kernel, we confirm its effectiveness: it finds 218 new bugs, with 41 CVEs assigned. Out of those 218 bugs, 115 are in specialized modules.
+</details>
+
+## 2022
+
 ### [NDSS '22] Testability Tarpits: the Impact of Code Patterns on the Security Testing of Web Applications
 
-[paper](http://193.55.114.4/docs/ndss22_alkassar.pdf) [tool: TestabilityTarpits](https://github.com/enferas/TestabilityTarpits)
+[paper](http://193.55.114.4/docs/ndss22_alkassar.pdf) [project: TestabilityTarpits](https://github.com/enferas/TestabilityTarpits)
 
 <details>
 	<summary>Abstract</summary>
@@ -108,7 +165,7 @@ In the past three years, the continuous fuzzing projects Syzkaller and Syzbot ha
 
 ### [NDSS '22] Progressive Scrutiny: Incremental Detection of UBI bugs in the Linux Kernel
 
-[paper](https://www.cs.ucr.edu/~csong/ndss22-increlux.pdf) [tool: IncreLux](https://github.com/seclab-ucr/IncreLux.git)
+[paper](https://www.cs.ucr.edu/~csong/ndss22-increlux.pdf) [project: IncreLux](https://github.com/seclab-ucr/IncreLux.git)
 
 <details>
 	<summary>Abstract</summary>
