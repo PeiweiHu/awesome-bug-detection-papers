@@ -15,6 +15,11 @@
 	- [2020](#2020)
 		- [[CCS '20] RTFM! Automatic Assumption Discovery and Verification Derivation from Library Document for API Misuse Detection](#ccs-20-rtfm-automatic-assumption-discovery-and-verification-derivation-from-library-document-for-api-misuse-detection)
 	- [2021](#2021)
+		- [[USENIX Security '21] Finding Bugs Using Your Own Code: Detecting Functionally-similar yet Inconsistent Code](#usenix-security-21-finding-bugs-using-your-own-code-detecting-functionally-similar-yet-inconsistent-code)
+		- [[USENIX Security '21] Understanding and Detecting Disordered Error Handling with Precise Function Pairing](#usenix-security-21-understanding-and-detecting-disordered-error-handling-with-precise-function-pairing)
+		- [[USENIX Security '21] Detecting Kernel Refcount Bugs with Two-Dimensional Consistency Checking](#usenix-security-21-detecting-kernel-refcount-bugs-with-two-dimensional-consistency-checking)
+		- [[USENIX Security '21] PASAN: Detecting Peripheral Access Concurrency Bugs within Bare-Metal Embedded Applications](#usenix-security-21-pasan-detecting-peripheral-access-concurrency-bugs-within-bare-metal-embedded-applications)
+		- [[USENIX Security '21] Sharing More and Checking Less: Leveraging Common Input Keywords to Detect Bugs in Embedded Systems](#usenix-security-21-sharing-more-and-checking-less-leveraging-common-input-keywords-to-detect-bugs-in-embedded-systems)
 		- [[CCS '21] Detecting Missed Security Operations through Differential Checking of Object-based Similar Paths](#ccs-21-detecting-missed-security-operations-through-differential-checking-of-object-based-similar-paths)
 		- [[CCS '21] CPscan: Detecting Bugs Caused by Code Pruning in IoT Kernels](#ccs-21-cpscan-detecting-bugs-caused-by-code-pruning-in-iot-kernels)
 		- [[NDSS '21] KUBO: Precise and Scalable Detection of User-triggerable Undefined Behavior Bugs in OS Kernel](#ndss-21-kubo-precise-and-scalable-detection-of-user-triggerable-undefined-behavior-bugs-in-os-kernel)
@@ -106,6 +111,51 @@ To use library APIs, a developer is supposed to follow guidance and respect some
 </details>
 
 ## 2021
+
+### [USENIX Security '21] Finding Bugs Using Your Own Code: Detecting Functionally-similar yet Inconsistent Code
+
+[paper](https://www.usenix.org/system/files/sec21-ahmadi.pdf) [project: FICS](https://github.com/RiS3-Lab/FICS)
+
+<details>
+	<summary>Abstract</summary>
+Probabilistic classification has shown success in detecting known types of software bugs. However, the works following this approach tend to require a large amount of specimens to train their models. We present a new machine learning-based bug detection technique that does not require any external code or samples for training. Instead, our technique learns from the very codebase on which the bug detection is performed, and therefore, obviates the need for the cumbersome task of gathering and cleansing training samples (e.g., buggy code of certain kinds). The key idea behind our technique is a novel two-step clustering process applied on a given codebase. This clustering process identifies code snippets in a project that are functionally-similar yet appear in inconsistent forms. Such inconsistencies are found to cause a wide range of bugs, anything from missing checks to unsafe type conversions. Unlike previous works, our technique is generic and not specific to one type of inconsistency or bug. We prototyped our technique and evaluated it using 5 popular open source software, including QEMU and OpenSSL. With a minimal amount of manual analysis on the inconsistencies detected by our tool, we discovered 22 new unique bugs, despite the fact that many of these programs are constantly undergoing bug scans and new bugs in them are believed to be rare.
+</details>
+
+### [USENIX Security '21] Understanding and Detecting Disordered Error Handling with Precise Function Pairing
+
+[paper](https://www.usenix.org/system/files/sec21-wu-qiushi.pdf) <u>project: HERO</u>
+
+<details>
+	<summary>Abstract</summary>
+Software programs may frequently encounter various errors such as allocation failures. Error handling aims to gracefully deal with the errors to avoid security and reliability issues, thus it is prevalent and vital. However, because of its complexity and corner cases, error handling itself is often erroneous, and prior research has primarily focused on finding bugs in the handling part, such as incorrect error-code returning or missing error propagation.<br/><br/>In this paper, we propose and investigate a class of bugs in error-handling code from a different perspective. In particular, we find that programs often perform "cleanup" operations before the actual error handling, such as freeing memory or decreasing refcount. Critical bugs occur when these operations are performed (1) in an incorrect order, (2) redundantly, or (3) inadequately. We refer to such bugs as Disordered Error Handling (DiEH). Our investigation reveals that DiEH bugs are not only common but can also cause security problems such as privilege escalation, memory corruption, and denial-of-service. Based on the findings from the investigation, we then develop a system, HERO (Handling ERrors Orderly), to automatically detect DiEH. The core of HERO is a novel technique that precisely pairs both common and custom functions based on the unique error-handling structures, which allows us to infer expected cleanup functions. With HERO, we found 239 DiEH bugs in the Linux kernel, the FreeBSD kernel, and OpenSSL, which can cause security and reliability issues. The evaluation results show that DiEH is critical and widely exists in system software, and HERO is effective in detecting DiEH. We also believe that the precise function pairing is of independent interest in other research areas such as temporal-rule inference and race detection.
+</details>
+
+### [USENIX Security '21] Detecting Kernel Refcount Bugs with Two-Dimensional Consistency Checking
+
+[paper](https://www.usenix.org/system/files/sec21-tan.pdf) <u>project: CID</u>
+
+<details>
+	<summary>Abstract</summary>
+In the Linux kernel, reference counting (refcount) has become a default mechanism that manages resource objects. A refcount of a tracked object is incremented when a new reference is assigned and decremented when a reference becomes invalid. Since the kernel manages a large number of shared resources, refcount is prevalent. Due to the inherent complexity of the kernel and resource sharing, developers often fail to properly update refcounts, leading to refcount bugs. Researchers have shown that refcount bugs can cause critical security impacts like privilege escalation; however, the detection of refcount bugs remains an open problem.<br/><br/>In this paper, we propose CID, a new mechanism that employs two-dimensional consistency checking to automatically detect refcount bugs. By checking if callers consistently use a refcount function, CID detects deviating cases as potential bugs, and by checking how a caller uses a refcount function, CID infers the condition-aware rules for the function to correspondingly operate the refcount, and thus a violating case is a potential bug. More importantly, CID's consistency checking does not require complicated semantic understanding, inter-procedural data-flow tracing, or refcount-operation reasoning. CID also features an automated mechanism that systematically identifies refcount fields and functions in the whole kernel. We implement CID and apply it to the Linux kernel. The tool found 44 new refcount bugs that may cause severe security issues, most of which have been confirmed by the maintainers.
+</details>
+
+### [USENIX Security '21] PASAN: Detecting Peripheral Access Concurrency Bugs within Bare-Metal Embedded Applications
+
+[paper](https://www.usenix.org/system/files/sec21-kim.pdf) <u>project: PASan</u>
+
+<details>
+	<summary>Abstract</summary>
+Concurrency bugs might be one of the most challenging software defects to detect and debug due to their non-deterministic triggers caused by task scheduling and interrupt handling. While different tools have been proposed to address concurrency issues, protecting peripherals in embedded systems from concurrent accesses imposes unique challenges. A naïve lock protection on a certain memory-mapped I/O (MMIO) address still allows concurrent accesses to other MMIO addresses of a peripheral. Meanwhile, embedded peripherals such as sensors often employ some internal state machines to achieve certain functionalities. As a result, improper locking can lead to the corruption of peripherals' on-going jobs (we call transaction corruption) thus corrupted sensor values or failed jobs.<br/><br/>In this paper, we propose a static analysis tool namely PASAN to detect peripheral access concurrency issues for embedded systems. PASAN automatically finds the MMIO address range of each peripheral device using the parser-ready memory layout documents, extracts the peripheral's internal state machines using the corresponding device drivers, and detects concurrency bugs of peripheral accesses automatically. We evaluate PASAN on seven different embedded platforms, including multiple real time operating systems (RTOSes) and robotic aerial vehicles (RAVs). PASAN found 17 true positive concurrency bugs in total from three different platforms with the bug detection rates ranging from 40% to 100%. We have reported all our findings to the corresponding parties. To the best of our knowledge, PASAN is the first static analysis tool detecting the intrinsic problems in concurrent peripheral accesses for embedded systems.
+</details>
+
+### [USENIX Security '21] Sharing More and Checking Less: Leveraging Common Input Keywords to Detect Bugs in Embedded Systems
+
+[paper](https://www.usenix.org/system/files/sec21-chen-libo.pdf) <u>project: SaTC</u>
+
+<details>
+	<summary>Abstract</summary>
+IoT devices have brought invaluable convenience to our daily life. However, their pervasiveness also amplifies the impact of security vulnerabilities. Many popular vulnerabilities of embedded systems reside in their vulnerable web services. Unfortunately, existing vulnerability detection methods cannot effectively nor efficiently analyze such web services: they either introduce heavy execution overheads or have many false positives and false negatives.<br/><br/>In this paper, we propose a novel static taint checking solution, SaTC, to effectively detect security vulnerabilities in web services provided by embedded devices. Our key insight is that, string literals on web interfaces are commonly shared between front-end files and back-end binaries to encode user input. We thus extract such common keywords from the front-end, and use them to locate reference points in the back-end, which indicate the input entry. Then, we apply targeted data-flow analysis to accurately detect dangerous uses of the untrusted user input. We implemented a prototype of SaTC and evaluated it on 39 embedded system firmwares from six popular vendors. SaTC discovered 33 unknown bugs, of which 30 are confirmed by CVE/CNVD/PSV. Compared to the state-of-the-art tool KARONTE, SaTC found significantly more bugs on the test set. It shows that, SaTC is effective in discovering bugs in embedded systems.
+</details>
 
 ### [CCS '21] Detecting Missed Security Operations through Differential Checking of Object-based Similar Paths
 
