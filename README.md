@@ -1,6 +1,4 @@
-# awesome-bug-detection-papers
-
-- [awesome-bug-detection-papers](#awesome-bug-detection-papers)
+- [awesome-bug-detection-papers (static)](#awesome-bug-detection-papers-static)
 	- [2016](#2016)
 		- [[USENIX Security '16] APISan: Sanitizing API Usages through Semantic Cross-Checking](#usenix-security-16-apisan-sanitizing-api-usages-through-semantic-cross-checking)
 	- [2017](#2017)
@@ -15,11 +13,15 @@
 	- [2020](#2020)
 		- [[CCS '20] RTFM! Automatic Assumption Discovery and Verification Derivation from Library Document for API Misuse Detection](#ccs-20-rtfm-automatic-assumption-discovery-and-verification-derivation-from-library-document-for-api-misuse-detection)
 	- [2021](#2021)
+		- [[S&P '21] ARBITRAR: User-Guided API Misuse Detection](#sp-21-arbitrar-user-guided-api-misuse-detection)
 		- [[USENIX Security '21] Finding Bugs Using Your Own Code: Detecting Functionally-similar yet Inconsistent Code](#usenix-security-21-finding-bugs-using-your-own-code-detecting-functionally-similar-yet-inconsistent-code)
 		- [[USENIX Security '21] Understanding and Detecting Disordered Error Handling with Precise Function Pairing](#usenix-security-21-understanding-and-detecting-disordered-error-handling-with-precise-function-pairing)
 		- [[USENIX Security '21] Detecting Kernel Refcount Bugs with Two-Dimensional Consistency Checking](#usenix-security-21-detecting-kernel-refcount-bugs-with-two-dimensional-consistency-checking)
 		- [[USENIX Security '21] PASAN: Detecting Peripheral Access Concurrency Bugs within Bare-Metal Embedded Applications](#usenix-security-21-pasan-detecting-peripheral-access-concurrency-bugs-within-bare-metal-embedded-applications)
 		- [[USENIX Security '21] Sharing More and Checking Less: Leveraging Common Input Keywords to Detect Bugs in Embedded Systems](#usenix-security-21-sharing-more-and-checking-less-leveraging-common-input-keywords-to-detect-bugs-in-embedded-systems)
+		- [[CCS '21] Statically Discovering High-Order Taint Style Vulnerabilities in OS Kernels](#ccs-21-statically-discovering-high-order-taint-style-vulnerabilities-in-os-kernels)
+		- [[CCS '21] DoubleX: Statically Detecting Vulnerable Data Flows in Browser Extensions at Scale](#ccs-21-doublex-statically-detecting-vulnerable-data-flows-in-browser-extensions-at-scale)
+		- [[CCS '21] MirChecker: Detecting Bugs in Rust Programs via Static Analysis](#ccs-21-mirchecker-detecting-bugs-in-rust-programs-via-static-analysis)
 		- [[CCS '21] Detecting Missed Security Operations through Differential Checking of Object-based Similar Paths](#ccs-21-detecting-missed-security-operations-through-differential-checking-of-object-based-similar-paths)
 		- [[CCS '21] CPscan: Detecting Bugs Caused by Code Pruning in IoT Kernels](#ccs-21-cpscan-detecting-bugs-caused-by-code-pruning-in-iot-kernels)
 		- [[NDSS '21] KUBO: Precise and Scalable Detection of User-triggerable Undefined Behavior Bugs in OS Kernel](#ndss-21-kubo-precise-and-scalable-detection-of-user-triggerable-undefined-behavior-bugs-in-os-kernel)
@@ -28,6 +30,9 @@
 		- [[NDSS '22] Testability Tarpits: the Impact of Code Patterns on the Security Testing of Web Applications](#ndss-22-testability-tarpits-the-impact-of-code-patterns-on-the-security-testing-of-web-applications)
 		- [[NDSS '22] An In-depth Analysis of Duplicated Linux Kernel Bug Reports](#ndss-22-an-in-depth-analysis-of-duplicated-linux-kernel-bug-reports)
 		- [[NDSS '22] Progressive Scrutiny: Incremental Detection of UBI bugs in the Linux Kernel](#ndss-22-progressive-scrutiny-incremental-detection-of-ubi-bugs-in-the-linux-kernel)
+- [awesome-bug-detection-papers (dynamic)](#awesome-bug-detection-papers-dynamic)
+
+# awesome-bug-detection-papers (static)
 
 ## 2016
 
@@ -112,6 +117,15 @@ To use library APIs, a developer is supposed to follow guidance and respect some
 
 ## 2021
 
+### [S&P '21] ARBITRAR: User-Guided API Misuse Detection
+
+[paper](https://www.cis.upenn.edu/~mhnaik/papers/oakland21.pdf) [project: arbitrar](https://github.com/petablox/arbitrar)
+
+<details>
+	<summary>Abstract</summary>
+Software APIs exhibit rich diversity and complexity which not only renders them a common source of programming errors but also hinders program analysis tools for checking them. Such tools either expect a precise API specification, which requires program analysis expertise, or presume that correct API usages follow simple idioms that can be automatically mined from code, which suffers from poor accuracy. We propose a new approach that allows regular programmers to find API misuses. Our approach interacts with the user to classify valid and invalid usages of each target API method. It minimizes user burden by employing an active learning algorithm that ranks API usages by their likelihood of being invalid. We implemented our approach in a tool called ARBITRAR for C/C++ programs, and applied it to check the uses of 18 API methods in 21 large real-world programs, including OpenSSL and Linux Kernel. Within just 3 rounds of user interaction on average per API method, ARBITRAR found 40 new bugs, with patches accepted for 18 of them. Moreover, ARBITRAR finds all known bugs reported by a state-of-the-art tool APISAN in a benchmark suite comprising 92 bugs with a false positive rate of only 51.5% compared to APISAN’s 87.9%.
+</details>
+
 ### [USENIX Security '21] Finding Bugs Using Your Own Code: Detecting Functionally-similar yet Inconsistent Code
 
 [paper](https://www.usenix.org/system/files/sec21-ahmadi.pdf) [project: FICS](https://github.com/RiS3-Lab/FICS)
@@ -155,6 +169,33 @@ Concurrency bugs might be one of the most challenging software defects to detect
 <details>
 	<summary>Abstract</summary>
 IoT devices have brought invaluable convenience to our daily life. However, their pervasiveness also amplifies the impact of security vulnerabilities. Many popular vulnerabilities of embedded systems reside in their vulnerable web services. Unfortunately, existing vulnerability detection methods cannot effectively nor efficiently analyze such web services: they either introduce heavy execution overheads or have many false positives and false negatives.<br/><br/>In this paper, we propose a novel static taint checking solution, SaTC, to effectively detect security vulnerabilities in web services provided by embedded devices. Our key insight is that, string literals on web interfaces are commonly shared between front-end files and back-end binaries to encode user input. We thus extract such common keywords from the front-end, and use them to locate reference points in the back-end, which indicate the input entry. Then, we apply targeted data-flow analysis to accurately detect dangerous uses of the untrusted user input. We implemented a prototype of SaTC and evaluated it on 39 embedded system firmwares from six popular vendors. SaTC discovered 33 unknown bugs, of which 30 are confirmed by CVE/CNVD/PSV. Compared to the state-of-the-art tool KARONTE, SaTC found significantly more bugs on the test set. It shows that, SaTC is effective in discovering bugs in embedded systems.
+</details>
+
+### [CCS '21] Statically Discovering High-Order Taint Style Vulnerabilities in OS Kernels
+
+[paper](https://www.cs.ucr.edu/~zhiyunq/pub/ccs21_static_high_order.pdf) [project: SUTURE](https://github.com/seclab-ucr/SUTURE)
+
+<details>
+  <summary>Abstract</summary>
+Static analysis is known to yield numerous false alarms when used in bug finding, especially for complex vulnerabilities in large code bases like the Linux kernel. One important class of such complex vulnerabilities is what we call "high-order taint style vulnerability", where the taint flow from the user input to the vulnerable site crosses the boundary of a single entry function invocation (i.e., syscall). Due to the large scope and high precision requirement, few have attempted to solve the problem. In this paper, we present SUTURE, a highly precise and scalable static analysis tool capable of discovering high-order vulnerabilities in OS kernels. SUTURE employs a novel summary-based high-order taint flow construction approach to efficiently enumerate the cross-entry taint flows, while incorporating multiple innovative enhancements on analysis precision that are unseen in existing tools, resulting in a highly precise inter-procedural flow-, context-, field-, index-, and opportunistically path-sensitive static taint analysis. We apply SUTURE to discover high-order taint vulnerabilities in multiple Android kernels from mainstream vendors (e.g., Google, Samsung, Huawei), the results show that SUTURE can both confirm known high-order vulnerabilities and uncover new ones. So far, SUTURE generates 79 true positive warning groups, of which 19 have been confirmed by the vendors, including a high severity vulnerability rated by Google. SUTURE also achieves a reasonable false positive rate (51.23%) perceived by users of our tool.
+</details>
+
+### [CCS '21] DoubleX: Statically Detecting Vulnerable Data Flows in Browser Extensions at Scale
+
+[paper](https://swag.cispa.saarland/papers/fass2021doublex.pdf) [project: DoubleX](https://github.com/Aurore54F/DoubleX)
+
+<details>
+  <summary>Abstract</summary>
+Browser extensions are popular to enhance users' browsing experience. By design, they have access to security- and privacy-critical APIs to perform tasks that web applications cannot traditionally do. Even though web pages and extensions are isolated, they can communicate through messages. Specifically, a vulnerable extension can receive messages from another extension or web page, under the control of an attacker. Thus, these communication channels are a way for a malicious actor to elevate their privileges to the capabilities of an extension, which can lead to, e.g., universal cross-site scripting or sensitive user data exfiltration. To automatically detect such security and privacy threats in benign-but-buggy extensions, we propose our static analyzer DoubleX. DoubleX defines an Extension Dependence Graph (EDG), which abstracts extension code with control and data flows, pointer analysis, and models the message interactions within and outside of an extension. This way, we can leverage this graph to track and detect suspicious data flows between external actors and sensitive APIs in browser extensions. We evaluated DoubleX on 154,484 Chrome extensions, where it flags 278 extensions as having a suspicious data flow. Overall, we could verify that 89% of these flows can be influenced by external actors (i.e., an attacker). Based on our threat model, we subsequently demonstrate exploitability for 184 extensions. Finally, we evaluated DoubleX on a labeled vulnerable extension set, where it accurately detects almost 93% of known flaws.
+</details>
+
+### [CCS '21] MirChecker: Detecting Bugs in Rust Programs via Static Analysis
+
+[paper](https://www.cse.cuhk.edu.hk/~cslui/PUBLICATION/CCS2021.pdf) [project: MirChecker](https://github.com/lizhuohua/rust-mir-checker)
+
+<details>
+  <summary>Abstract</summary>
+Safe system programming is often a crucial requirement due to its critical role in system software engineering. Conventional low-level programming languages such as C and assembly are efficient, but their inherent unsafe nature makes it undesirable for security-critical scenarios. Recently, Rust has become a promising alternative for safe system-level programming. While giving programmers fine-grained hardware control, its strong type system enforces many security properties including memory safety. However, Rust's security guarantee is not a silver bullet. Runtime crashes and memory-safety errors still harass Rust developers, causing damaging exploitable vulnerabilities, as reported by numerous studies.<br/><br/>In this paper, we present and evaluate MirChecker, a fully automated bug detection framework for Rust programs by performing static analysis on Rust's Mid-level Intermediate Representation (MIR). Based on the observation of existing bugs found in Rust codebases, our approach keeps track of both numerical and symbolic information, detects potential runtime crashes and memory-safety errors by using constraint solving techniques, and outputs informative diagnostics to users. We evaluate MirChecker on both buggy code snippets extracted from existing Common Vulnerabilities and Exposures (CVE) and real-world Rust codebases. Our experiments show that MirChecker can detect all the issues in our code snippets, and is capable of performing bug finding in real-world scenarios, where it detected a total of 33 previously unknown bugs including 16 memory-safety issues from 12 Rust packages (crates) with an acceptable false-positive rate.
 </details>
 
 ### [CCS '21] Detecting Missed Security Operations through Differential Checking of Object-based Similar Paths
@@ -221,3 +262,5 @@ In the past three years, the continuous fuzzing projects Syzkaller and Syzbot ha
 	<summary>Abstract</summary>
 The Linux kernel has a rapid development cycle, with 10 commits every hour, on average. While these updates provide new features and bug fixes, they can also introduce new bugs and security vulnerabilities. Recent techniques showed how to detect some types of vulnerabilities using static analysis, but these tools cannot run quickly enough to keep up with the pace of kernel development. Ideally, an incremental analysis technique could address this problem, by doing a complete analysis once and then only analyzing changed portions of the code subsequently. However, incremental analysis of the Linux kernel poses unique challenges, due to its enormous scale and the high precision required to reduce false positives.
 </details>
+
+# awesome-bug-detection-papers (dynamic)
