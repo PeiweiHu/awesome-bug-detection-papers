@@ -1,36 +1,40 @@
 - [awesome-bug-detection-papers (static)](#awesome-bug-detection-papers-static)
 	- [2016](#2016)
-		- [[USENIX Security '16] APISan: Sanitizing API Usages through Semantic Cross-Checking](#usenix-security-16-apisan-sanitizing-api-usages-through-semantic-cross-checking)
+		- [\[USENIX Security '16\] APISan: Sanitizing API Usages through Semantic Cross-Checking](#usenix-security-16-apisan-sanitizing-api-usages-through-semantic-cross-checking)
 	- [2017](#2017)
-		- [[USENIX Security '17] DR. CHECKER: A Soundy Analysis for Linux Kernel Drivers](#usenix-security-17-dr-checker-a-soundy-analysis-for-linux-kernel-drivers)
+		- [\[USENIX Security '17\] DR. CHECKER: A Soundy Analysis for Linux Kernel Drivers](#usenix-security-17-dr-checker-a-soundy-analysis-for-linux-kernel-drivers)
 	- [2018](#2018)
-		- [[NDSS '18] K-Miner: Uncovering Memory Corruption in Linux](#ndss-18-k-miner-uncovering-memory-corruption-in-linux)
-		- [[USENIX ATC '18] DSAC: Effective Static Analysis of Sleep-in-Atomic-Context Bugs in Kernel Modules](#usenix-atc-18-dsac-effective-static-analysis-of-sleep-in-atomic-context-bugs-in-kernel-modules)
+		- [\[NDSS '18\] K-Miner: Uncovering Memory Corruption in Linux](#ndss-18-k-miner-uncovering-memory-corruption-in-linux)
+		- [\[USENIX ATC '18\] DSAC: Effective Static Analysis of Sleep-in-Atomic-Context Bugs in Kernel Modules](#usenix-atc-18-dsac-effective-static-analysis-of-sleep-in-atomic-context-bugs-in-kernel-modules)
 	- [2019](#2019)
-		- [[USENIX ATC '19] Effective Static Analysis of Concurrency Use-After-Free Bugs in Linux Device Drivers](#usenix-atc-19-effective-static-analysis-of-concurrency-use-after-free-bugs-in-linux-device-drivers)
-		- [[USENIX Security '19] PeX: A Permission Check Analysis Framework for Linux Kernel](#usenix-security-19-pex-a-permission-check-analysis-framework-for-linux-kernel)
-		- [[USENIX Security '19] Detecting missing-check bugs via semantic- and context-aware criticalness and constraints inferences](#usenix-security-19-detecting-missing-check-bugs-via-semantic--and-context-aware-criticalness-and-constraints-inferences)
+		- [\[USENIX ATC '19\] Effective Static Analysis of Concurrency Use-After-Free Bugs in Linux Device Drivers](#usenix-atc-19-effective-static-analysis-of-concurrency-use-after-free-bugs-in-linux-device-drivers)
+		- [\[USENIX Security '19\] PeX: A Permission Check Analysis Framework for Linux Kernel](#usenix-security-19-pex-a-permission-check-analysis-framework-for-linux-kernel)
+		- [\[USENIX Security '19\] Detecting missing-check bugs via semantic- and context-aware criticalness and constraints inferences](#usenix-security-19-detecting-missing-check-bugs-via-semantic--and-context-aware-criticalness-and-constraints-inferences)
 	- [2020](#2020)
-		- [[CCS '20] RTFM! Automatic Assumption Discovery and Verification Derivation from Library Document for API Misuse Detection](#ccs-20-rtfm-automatic-assumption-discovery-and-verification-derivation-from-library-document-for-api-misuse-detection)
+		- [\[CCS '20\] RTFM! Automatic Assumption Discovery and Verification Derivation from Library Document for API Misuse Detection](#ccs-20-rtfm-automatic-assumption-discovery-and-verification-derivation-from-library-document-for-api-misuse-detection)
 	- [2021](#2021)
-		- [[S&P '21] ARBITRAR: User-Guided API Misuse Detection](#sp-21-arbitrar-user-guided-api-misuse-detection)
-		- [[USENIX Security '21] Finding Bugs Using Your Own Code: Detecting Functionally-similar yet Inconsistent Code](#usenix-security-21-finding-bugs-using-your-own-code-detecting-functionally-similar-yet-inconsistent-code)
-		- [[USENIX Security '21] Understanding and Detecting Disordered Error Handling with Precise Function Pairing](#usenix-security-21-understanding-and-detecting-disordered-error-handling-with-precise-function-pairing)
-		- [[USENIX Security '21] Detecting Kernel Refcount Bugs with Two-Dimensional Consistency Checking](#usenix-security-21-detecting-kernel-refcount-bugs-with-two-dimensional-consistency-checking)
-		- [[USENIX Security '21] PASAN: Detecting Peripheral Access Concurrency Bugs within Bare-Metal Embedded Applications](#usenix-security-21-pasan-detecting-peripheral-access-concurrency-bugs-within-bare-metal-embedded-applications)
-		- [[USENIX Security '21] Sharing More and Checking Less: Leveraging Common Input Keywords to Detect Bugs in Embedded Systems](#usenix-security-21-sharing-more-and-checking-less-leveraging-common-input-keywords-to-detect-bugs-in-embedded-systems)
-		- [[CCS '21] Statically Discovering High-Order Taint Style Vulnerabilities in OS Kernels](#ccs-21-statically-discovering-high-order-taint-style-vulnerabilities-in-os-kernels)
-		- [[CCS '21] DoubleX: Statically Detecting Vulnerable Data Flows in Browser Extensions at Scale](#ccs-21-doublex-statically-detecting-vulnerable-data-flows-in-browser-extensions-at-scale)
-		- [[CCS '21] MirChecker: Detecting Bugs in Rust Programs via Static Analysis](#ccs-21-mirchecker-detecting-bugs-in-rust-programs-via-static-analysis)
-		- [[CCS '21] Detecting Missed Security Operations through Differential Checking of Object-based Similar Paths](#ccs-21-detecting-missed-security-operations-through-differential-checking-of-object-based-similar-paths)
-		- [[CCS '21] CPscan: Detecting Bugs Caused by Code Pruning in IoT Kernels](#ccs-21-cpscan-detecting-bugs-caused-by-code-pruning-in-iot-kernels)
-		- [[NDSS '21] KUBO: Precise and Scalable Detection of User-triggerable Undefined Behavior Bugs in OS Kernel](#ndss-21-kubo-precise-and-scalable-detection-of-user-triggerable-undefined-behavior-bugs-in-os-kernel)
-		- [[NDSS '21] Detecting Kernel Memory Leaks in Specialized Modules with Ownership Reasoning](#ndss-21-detecting-kernel-memory-leaks-in-specialized-modules-with-ownership-reasoning)
+		- [\[S\&P '21\] ARBITRAR: User-Guided API Misuse Detection](#sp-21-arbitrar-user-guided-api-misuse-detection)
+		- [\[USENIX Security '21\] Finding Bugs Using Your Own Code: Detecting Functionally-similar yet Inconsistent Code](#usenix-security-21-finding-bugs-using-your-own-code-detecting-functionally-similar-yet-inconsistent-code)
+		- [\[USENIX Security '21\] Understanding and Detecting Disordered Error Handling with Precise Function Pairing](#usenix-security-21-understanding-and-detecting-disordered-error-handling-with-precise-function-pairing)
+		- [\[USENIX Security '21\] Detecting Kernel Refcount Bugs with Two-Dimensional Consistency Checking](#usenix-security-21-detecting-kernel-refcount-bugs-with-two-dimensional-consistency-checking)
+		- [\[USENIX Security '21\] PASAN: Detecting Peripheral Access Concurrency Bugs within Bare-Metal Embedded Applications](#usenix-security-21-pasan-detecting-peripheral-access-concurrency-bugs-within-bare-metal-embedded-applications)
+		- [\[USENIX Security '21\] Sharing More and Checking Less: Leveraging Common Input Keywords to Detect Bugs in Embedded Systems](#usenix-security-21-sharing-more-and-checking-less-leveraging-common-input-keywords-to-detect-bugs-in-embedded-systems)
+		- [\[CCS '21\] Statically Discovering High-Order Taint Style Vulnerabilities in OS Kernels](#ccs-21-statically-discovering-high-order-taint-style-vulnerabilities-in-os-kernels)
+		- [\[CCS '21\] DoubleX: Statically Detecting Vulnerable Data Flows in Browser Extensions at Scale](#ccs-21-doublex-statically-detecting-vulnerable-data-flows-in-browser-extensions-at-scale)
+		- [\[CCS '21\] MirChecker: Detecting Bugs in Rust Programs via Static Analysis](#ccs-21-mirchecker-detecting-bugs-in-rust-programs-via-static-analysis)
+		- [\[CCS '21\] Detecting Missed Security Operations through Differential Checking of Object-based Similar Paths](#ccs-21-detecting-missed-security-operations-through-differential-checking-of-object-based-similar-paths)
+		- [\[CCS '21\] CPscan: Detecting Bugs Caused by Code Pruning in IoT Kernels](#ccs-21-cpscan-detecting-bugs-caused-by-code-pruning-in-iot-kernels)
+		- [\[NDSS '21\] KUBO: Precise and Scalable Detection of User-triggerable Undefined Behavior Bugs in OS Kernel](#ndss-21-kubo-precise-and-scalable-detection-of-user-triggerable-undefined-behavior-bugs-in-os-kernel)
+		- [\[NDSS '21\] Detecting Kernel Memory Leaks in Specialized Modules with Ownership Reasoning](#ndss-21-detecting-kernel-memory-leaks-in-specialized-modules-with-ownership-reasoning)
 	- [2022](#2022)
-		- [[NDSS '22] Testability Tarpits: the Impact of Code Patterns on the Security Testing of Web Applications](#ndss-22-testability-tarpits-the-impact-of-code-patterns-on-the-security-testing-of-web-applications)
-		- [[NDSS '22] An In-depth Analysis of Duplicated Linux Kernel Bug Reports](#ndss-22-an-in-depth-analysis-of-duplicated-linux-kernel-bug-reports)
-		- [[NDSS '22] Progressive Scrutiny: Incremental Detection of UBI bugs in the Linux Kernel](#ndss-22-progressive-scrutiny-incremental-detection-of-ubi-bugs-in-the-linux-kernel)
+		- [\[NDSS '22\] Testability Tarpits: the Impact of Code Patterns on the Security Testing of Web Applications](#ndss-22-testability-tarpits-the-impact-of-code-patterns-on-the-security-testing-of-web-applications)
+		- [\[NDSS '22\] An In-depth Analysis of Duplicated Linux Kernel Bug Reports](#ndss-22-an-in-depth-analysis-of-duplicated-linux-kernel-bug-reports)
+		- [\[NDSS '22\] Progressive Scrutiny: Incremental Detection of UBI bugs in the Linux Kernel](#ndss-22-progressive-scrutiny-incremental-detection-of-ubi-bugs-in-the-linux-kernel)
+		- [\[USENIX Security '22\] How Long Do Vulnerabilities Live in the Code? A Large-Scale Empirical Measurement Study on FOSS Vulnerability Lifetimes](#usenix-security-22-how-long-do-vulnerabilities-live-in-the-code-a-large-scale-empirical-measurement-study-on-foss-vulnerability-lifetimes)
+		- [\[USENIX Security '22\] Arbiter: Bridging the Static and Dynamic Divide in Vulnerability Discovery on Binary Programs](#usenix-security-22-arbiter-bridging-the-static-and-dynamic-divide-in-vulnerability-discovery-on-binary-programs)
+		- [\[USENIX Security '22\] OS-Aware Vulnerability Prioritization via Differential Severity Analysis](#usenix-security-22-os-aware-vulnerability-prioritization-via-differential-severity-analysis)
 - [awesome-bug-detection-papers (dynamic)](#awesome-bug-detection-papers-dynamic)
+
 
 # awesome-bug-detection-papers (static)
 
@@ -261,6 +265,36 @@ In the past three years, the continuous fuzzing projects Syzkaller and Syzbot ha
 <details>
 	<summary>Abstract</summary>
 The Linux kernel has a rapid development cycle, with 10 commits every hour, on average. While these updates provide new features and bug fixes, they can also introduce new bugs and security vulnerabilities. Recent techniques showed how to detect some types of vulnerabilities using static analysis, but these tools cannot run quickly enough to keep up with the pace of kernel development. Ideally, an incremental analysis technique could address this problem, by doing a complete analysis once and then only analyzing changed portions of the code subsequently. However, incremental analysis of the Linux kernel poses unique challenges, due to its enormous scale and the high precision required to reduce false positives.
+</details>
+
+### [USENIX Security '22] How Long Do Vulnerabilities Live in the Code? A Large-Scale Empirical Measurement Study on FOSS Vulnerability Lifetimes
+
+[paper](https://www.usenix.org/system/files/sec22summer_alexopoulos.pdf)
+
+<details>
+	<summary>Abstract</summary>
+How long do vulnerabilities live in the repositories of large, evolving projects? Although the question has been identified as an interesting problem by the software community in online forums, it has not been investigated yet in adequate depth and scale, since the process of identifying the exact point in time when a vulnerability was introduced is particularly cumbersome. In this paper, we provide an automatic approach for accurately estimating how long vulnerabilities remain in the code (their lifetimes). Our method relies on the observation that while it is difficult to pinpoint the exact point of introduction for one vulnerability, it is possible to accurately estimate the average lifetime of a large enough sample of vulnerabilities, via a heuristic approach.
+
+With our approach, we perform the first large-scale measurement of Free and Open Source Software vulnerability lifetimes, going beyond approaches estimating lower bounds prevalent in previous research. We find that the average lifetime of a vulnerability is around 4 years, varying significantly between projects (~2 years for Chromium, ~7 years for OpenSSL). The distribution of lifetimes can be approximately described by an exponential distribution. There are no statistically significant differences between the lifetimes of different vulnerability types when considering specific projects. Vulnerabilities are getting older, as the average lifetime of fixed vulnerabilities in a given year increases over time, influenced by the overall increase of code age. However, they live less than non-vulnerable code, with an increasing spread over time for some projects, suggesting a notion of maturity that can be considered an indicator of quality. While the introduction of fuzzers does not significantly reduce the lifetimes of memory-related vulnerabilities, further research is needed to better understand and quantify the impact of fuzzers and other tools on vulnerability lifetimes and on the security of codebases.
+</details>
+
+### [USENIX Security '22] Arbiter: Bridging the Static and Dynamic Divide in Vulnerability Discovery on Binary Programs
+
+[paper](https://www.usenix.org/system/files/sec22fall_vadayath.pdf)
+
+<details>
+	<summary>Abstract</summary>
+In spite of their effectiveness in the context of vulnerability discovery, current state-of-the-art binary program analysis approaches are limited by inherent trade-offs between accuracy and scalability. In this paper, we identify a set of vulnerability properties that can aid both static and dynamic vulnerability detection techniques, improving the precision of the former and the scalability of the latter. By carefully integrating static and dynamic techniques, we detect vulnerabilities that exhibit these properties in real-world programs at a large scale.
+We implemented our technique, making several advancements in the analysis of binary code, and created a prototype called ARBITER. We demonstrate the effectiveness of our approach with a large-scale evaluation on four common vulnerability classes: CWE-131 (Incorrect Calculation of Buffer Size), CWE-252 (Unchecked Return Value), CWE-134 (Uncontrolled Format String), and CWE-337 (Predictable Seed in Pseudo-Random Number Generator). We evaluated our approach on more than 76,516 x86-64 binaries in the Ubuntu repositories and discovered new vulnerabilities, including a flaw inserted into programs during compilation.
+</details>
+
+### [USENIX Security '22] OS-Aware Vulnerability Prioritization via Differential Severity Analysis
+
+[paper](https://www.usenix.org/system/files/sec22fall_wu-qiushi.pdf)
+
+<details>
+	<summary>Abstract</summary>
+The Linux kernel is quickly evolving and extensively customized. This results in thousands of versions and derivatives. Unfortunately, the Linux kernel is quite vulnerable. Each year, thousands of bugs are reported, and hundreds of them are security-related bugs. Given the limited resources, the kernel maintainers have to prioritize patching the more severe vulnerabilities. In practice, Common Vulnerability Scoring System (CVSS)[1] has become the standard for characterizing vulnerability severity. However, a fundamental problem exists when CVSS meets Linux—it is used in a "one for all" manner. The severity of a Linux vulnerability is assessed for only the mainstream Linux, and all affected versions and derivatives will simply honor and reuse the CVSS score. Such an undistinguished CVSS usage results in underestimation or overestimation of severity, which further results in delayed and ignored patching or wastes of the precious resources. In this paper, we propose OS-aware vulnerability prioritization (namely DIFFCVSS), which employs differential severity analysis for vulnerabilities. Specifically, given a severity assessed vulnerability, as well as the mainstream version and a target version of Linux, DIFFCVSS employs multiple new techniques based on static program analysis and natural language processing to differentially identify whether the vulnerability manifests a higher or lower severity in the target version. A unique strength of this approach is that it transforms the challenging and laborious CVSS calculation into automatable differential analysis. We implement DIFFCVSS and apply it to the mainstream Linux and downstream Android systems. The evaluation and user-study results show that DIFFCVSS is able to precisely perform the differential severity analysis, and offers a precise and effective way to identify vulnerabilities that deserve a severity reevaluation.
 </details>
 
 # awesome-bug-detection-papers (dynamic)
